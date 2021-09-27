@@ -6,6 +6,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductGalleryController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::get('/checkout/success', [FrontendController::class, 'success'])->name('s
 //route login dashboard
 Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'index'])->name('index');
+
     //route admin
     Route::middleware(['admin'])->group(function(){
         Route::resource('product', ProductController::class);
@@ -34,6 +36,9 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         ]);
         Route::resource('transaction', TransactionController::class)->only([
             'index', 'edit', 'update', 'show'
+        ]);
+        Route::resource('user', UserController::class)->only([
+            'index', 'edit', 'update', 'destroy'
         ]);
     });
 });
