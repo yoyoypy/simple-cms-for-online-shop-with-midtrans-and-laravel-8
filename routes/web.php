@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
@@ -50,6 +51,9 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         ]);
         Route::resource('user', UserController::class)->only([
             'index', 'edit', 'update', 'destroy'
+        ]);
+        Route::resource('blog', BlogController::class)->except([
+            'show'
         ]);
     });
 });
