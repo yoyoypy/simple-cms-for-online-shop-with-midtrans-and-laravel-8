@@ -16,18 +16,29 @@
                             {{ __('Dashboard') }}
                         </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('dashboard.my-transaction.index') }}" :active="request()->routeIs('dashboard.my-transaction.index')">
-                            {{ __('My Transaction') }}
+                            {{ __('My Transactions') }}
                         </x-jet-nav-link>
                     @if (Auth::user()->roles == 'ADMIN')
+                        <x-jet-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
+                            {{ __('Transactions') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('dashboard.brand.index') }}" :active="request()->routeIs('dashboard.brand.index')">
+                            {{ __('Brands') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('dashboard.category.index') }}" :active="request()->routeIs('dashboard.category.index')">
+                            {{ __('Categories') }}
+                        </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
                             {{ __('Products') }}
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
-                            {{ __('Transaction') }}
+                        <x-jet-nav-link href="{{ route('dashboard.blog.index') }}" :active="request()->routeIs('dashboard.blog.index')">
+                            {{ __('Blogs') }}
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('dashboard.user.index') }}" :active="request()->routeIs('dashboard.user.index')">
-                            {{ __('User') }}
-                        </x-jet-nav-link>
+                    @endif
+                    @if (Auth::user()->id == '1')
+                    <x-jet-nav-link href="{{ route('dashboard.user.index') }}" :active="request()->routeIs('dashboard.user.index')">
+                        {{ __('Users') }}
+                    </x-jet-nav-link>
                     @endif
                 </div>
             </div>
@@ -159,15 +170,26 @@
                     {{ __('My Transactions') }}
                 </x-jet-responsive-nav-link>
             @if (Auth::user()->roles == 'ADMIN')
-                <x-jet-responsive-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
-                    {{ __('Products') }}
-                </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
                     {{ __('Transaction') }}
                 </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link href="{{ route('dashboard.user.index') }}" :active="request()->routeIs('dashboard.user.index')">
-                    {{ __('User') }}
+                <x-jet-responsive-nav-link href="{{ route('dashboard.brand.index') }}" :active="request()->routeIs('dashboard.brand.index')">
+                    {{ __('Brands') }}
                 </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('dashboard.category.index') }}" :active="request()->routeIs('dashboard.category.index')">
+                    {{ __('Category') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
+                    {{ __('Products') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('dashboard.blog.index') }}" :active="request()->routeIs('dashboard.blog.index')">
+                    {{ __('Blog') }}
+                </x-jet-responsive-nav-link>
+            @endif
+            @if (Auth::user()->id == '1')
+            <x-jet-responsive-nav-link href="{{ route('dashboard.user.index') }}" :active="request()->routeIs('dashboard.user.index')">
+                {{ __('User') }}
+            </x-jet-responsive-nav-link>
             @endif
         </div>
 

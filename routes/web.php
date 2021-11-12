@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MyTransactionController;
+use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductGalleryController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
@@ -53,6 +55,12 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
             'index', 'edit', 'update', 'destroy'
         ]);
         Route::resource('blog', BlogController::class)->except([
+            'show'
+        ]);
+        Route::resource('brand', BrandController::class)->except([
+            'show'
+        ]);
+        Route::resource('category', ProductCategoryController::class)->except([
             'show'
         ]);
     });
