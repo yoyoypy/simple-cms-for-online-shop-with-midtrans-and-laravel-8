@@ -14,7 +14,11 @@ class InquiryController extends Controller
      */
     public function index()
     {
-        //
+        $items = Inquiry::with('product')->latest()->paginate();
+
+        return view('pages.dashboard.inquiry.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**
@@ -46,7 +50,12 @@ class InquiryController extends Controller
      */
     public function show(Inquiry $inquiry)
     {
-        //
+        $inquiry['read'] = '1';
+        $inquiry->save();
+
+        return view('pages.dashboard.inquiry.show', [
+            'item' => $inquiry
+        ]);
     }
 
     /**

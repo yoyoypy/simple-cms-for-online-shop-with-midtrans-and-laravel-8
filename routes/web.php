@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\MyTransactionController;
+use App\Http\Controllers\PhotoGalleryController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductGalleryController;
 use App\Http\Controllers\TransactionController;
@@ -62,6 +64,12 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         ]);
         Route::resource('category', ProductCategoryController::class)->except([
             'show'
+        ]);
+        Route::resource('inquiry', InquiryController::class)->only([
+            'show', 'index'
+        ]);
+        Route::resource('photogallery', PhotoGalleryController::class)->except([
+            'show', 'edit', 'update'
         ]);
     });
 });

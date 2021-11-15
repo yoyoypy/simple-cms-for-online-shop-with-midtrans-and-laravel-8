@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class PhotoGallery extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'author',
+        'title',
+        'public',
+        'description',
+        'metadescription',
+        'image'
+    ];
 }

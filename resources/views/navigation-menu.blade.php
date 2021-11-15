@@ -34,6 +34,12 @@
                         <x-jet-nav-link href="{{ route('dashboard.blog.index') }}" :active="request()->routeIs('dashboard.blog.index')">
                             {{ __('Blogs') }}
                         </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('dashboard.photogallery.index') }}" :active="request()->routeIs('dashboard.photogallery.index')">
+                            {{ __('Photo Galleries') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('dashboard.inquiry.index') }}" :active="request()->routeIs('dashboard.inquiry.index')">
+                            {{ __('Inquiry') }}
+                        </x-jet-nav-link>
                     @endif
                     @if (Auth::user()->id == '1')
                     <x-jet-nav-link href="{{ route('dashboard.user.index') }}" :active="request()->routeIs('dashboard.user.index')">
@@ -184,6 +190,12 @@
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ route('dashboard.blog.index') }}" :active="request()->routeIs('dashboard.blog.index')">
                     {{ __('Blog') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('dashboard.photogallery.index') }}" :active="request()->routeIs('dashboard.photogallery.index')">
+                    {{ __('Photo Galleries') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('dashboard.inquiry.index') }}" :active="request()->routeIs('dashboard.inquiry.index')">
+                    {{ __('Inquiry') }}
                 </x-jet-responsive-nav-link>
             @endif
             @if (Auth::user()->id == '1')
