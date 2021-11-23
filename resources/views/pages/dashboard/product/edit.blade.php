@@ -29,6 +29,34 @@
                 @csrf
                 @method('PUT')
                 <div class="flex flex-wrap -mx-4 mb-6">
+                    {{-- input Brands --}}
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Brands</label>
+                        <select name="brands_id" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                <option value="">Select Brand</option>
+                                <option value="" disabled>---------------</option>
+                            @foreach ($brands as $brand)
+                                <option value="{{ $brand->id }}">{{ $brand->brand }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    {{-- input Brands --}}
+                </div>
+                <div class="flex flex-wrap -mx-4 mb-6">
+                    {{-- input Categories --}}
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Categories</label>
+                        <select name="categories_id" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                            <option value="">Select Category</option>
+                            <option value="" disabled>---------------</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->category }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    {{-- input Categories --}}
+                </div>
+                <div class="flex flex-wrap -mx-4 mb-6">
                     {{-- input name --}}
                     <div class="w-full px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
@@ -56,11 +84,24 @@
                 </div>
 
                 <div class="flex flex-wrap -mx-4 mb-6">
+                    {{-- input tags --}}
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tags</label>
+                        <input type="text" value="{{ old('tags') ?? $item->tags }}" name="tags" placeholder="Input Product Tags Here" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <span class="italic font-thin text-gray-700 text-xs">use space for separator</span>
+                    </div>
+                    {{-- input tags --}}
+                </div>
+
+                <div class="flex flex-wrap -mx-4 mb-6">
                     {{-- save button --}}
                     <div class="w-full px-3">
                         <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
                             Update product
                         </button>
+                        <a href="{{ route('dashboard.product.index') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded shadow-lg">
+                            Back
+                        </a>
                     </div>
                     {{-- save button --}}
                 </div>

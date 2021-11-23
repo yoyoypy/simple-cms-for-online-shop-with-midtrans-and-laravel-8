@@ -128,6 +128,11 @@ class PhotoGalleryController extends Controller
      */
     public function destroy(PhotoGallery $photogallery)
     {
+        // $data = url($photogallery->image);
+        // dd($data);
+
+        // unlink(url($photogallery->image));
+        // Storage::delete(storage_path($photogallery->image));
         $photogallery->delete();
 
         return redirect()->route('dashboard.photogallery.index');

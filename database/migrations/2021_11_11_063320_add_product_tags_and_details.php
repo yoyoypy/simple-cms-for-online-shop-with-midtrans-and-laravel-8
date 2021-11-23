@@ -14,8 +14,20 @@ class AddProductTagsAndDetails extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->bigInteger('categories_id')->after('slug')->nullable();
-            $table->bigInteger('brands_id')->after('categories_id')->nullable();
+            $table->bigInteger('categories_id')
+                    ->references('id')
+                    ->on('product_categories')
+                    ->onDelete('cascade')
+                    ->after('slug')
+                    ->nullable();
+
+            $table->bigInteger('brands_id')
+                    ->references('id')
+                    ->on('brands')
+                    ->onDelete('cascade')
+                    ->after('categories_id')
+                    ->nullable();
+
             $table->string('tags')->after('description')->nullable();
         });
     }

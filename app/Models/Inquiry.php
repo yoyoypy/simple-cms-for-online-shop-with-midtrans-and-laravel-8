@@ -14,6 +14,7 @@ class Inquiry extends Model
         'name',
         'email',
         'subject',
+        'description',
         'phone',
         'address',
         'read'

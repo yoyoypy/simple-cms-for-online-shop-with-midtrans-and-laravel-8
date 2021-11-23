@@ -17,7 +17,7 @@ class CreateBlogsTable extends Migration
             $table->id();
             $table->bigInteger('author');
             $table->string('slug');
-            $table->string('thumbnail');
+            $table->string('thumbnail')->nullable();
             $table->longText('description');
             $table->text('tags')->nullable();
             $table->timestamps();

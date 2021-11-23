@@ -24,11 +24,12 @@ class InquiryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'      => 'required',
-            'email'     => 'required|email',
-            'subject'   => 'required',
-            'phone'     => 'required|integer',
-            'address'   => 'required'
+            'name'          => 'required',
+            'email'         => 'required|email',
+            'subject'       => 'required',
+            'description'   => 'required',
+            'phone'         => 'required|integer',
+            'address'       => 'required'
         ];
     }
 }

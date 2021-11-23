@@ -19,7 +19,7 @@ class FrontendController extends Controller
     {
         $products = Product::with(['galleries'])->latest()->take(10)->get();
         // dd($products);
-        return view('pages.frontend.index', compact('products'));
+        return view('frontend.index', compact('products'));
     }
 
     public function details(Request $request, $slug)

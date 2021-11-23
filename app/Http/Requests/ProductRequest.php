@@ -25,8 +25,10 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
+            'brands_id'     => 'required',
+            'categories_id' => 'required',
             'name'          => 'required|max:255',
-            'price'         => 'required|integer',
+            'price'         => 'integer',
             'description'   => 'required'
         ];
     }

@@ -6,6 +6,8 @@ use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use App\Models\Brand;
+use App\Models\ProductCategory;
 use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
@@ -56,7 +58,13 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('pages.dashboard.product.create');
+        $categories = ProductCategory::all();
+        $brands = Brand::all();
+
+        return view('pages.dashboard.product.create', [
+            'categories' => $categories,
+            'brands'    => $brands
+        ]);
     }
 
     /**
@@ -94,8 +102,13 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $categories = ProductCategory::all();
+        $brands = Brand::all();
+
         return view('pages.dashboard.product.edit', [
-            'item' => $product
+            'item' => $product,
+            'categories' => $categories,
+            'brands'    => $brands
         ]);
     }
 
