@@ -34,9 +34,13 @@
                 <a href="{{ route('dashboard.product.gallery.create', $product->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
                     + Upload Photos for {{ $product->name }}
                 </a>
+                <a href="{{ route('dashboard.product.index') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded shadow-lg" style="margin-left: 3px">
+                    Back to product
+                </a>
             </div>
             <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
+                    <strong>Foto yang paling awal akan muncul sebagai thumbnail</strong>
                     <table id="crudTable">
                         <thead>
                         <tr>

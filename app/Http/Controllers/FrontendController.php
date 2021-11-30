@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckoutRequest;
+use App\Models\Blog;
+use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Transaction;
@@ -18,8 +20,50 @@ class FrontendController extends Controller
     public function index(Request $request)
     {
         $products = Product::with(['galleries'])->latest()->take(10)->get();
-        // dd($products);
-        return view('frontend.index', compact('products'));
+        $brands = Brand::all();
+        $blogs = Blog::latest()->take(6)->get();
+
+        // dd($blogs);
+        return view('frontend.index', compact('products', 'blogs', 'brands'));
+    }
+
+    public function news()
+    {
+        $blogs = Blog::latest()->paginate(10)->withQueryString();
+
+        //footer
+        $brands = Brand::all();
+
+        return view('frontend.blogs', compact('blogs', 'brands'));
+    }
+
+    public function newsdetail(Blog $blog)
+    {
+        $item = Blog::where('slug', $blog->slug)->firstOrFail();
+        $recents = Blog::latest()->take(6)->get();
+        $previous = Blog::where('id', $blog->id-1)->first();
+        $next = Blog::where('id', $blog->id+1)->first();
+        // dd($next);
+
+        //footer
+        $brands = Brand::all();
+
+        return view('frontend.blog-detail', compact('item', 'brands', 'recents', 'previous', 'next'));
+    }
+
+    public function brands(Brand $brand)
+    {
+        $items = Product::where('brands_id', $brand->id)->with(['galleries'])->get();
+        dd($items);
+        return view('frontend.index', compact('items'));
+    }
+
+    public function aboutus()
+    {
+        //footer
+        $brands = Brand::all();
+
+        return view('frontend.aboutus', compact('brands'));
     }
 
     public function details(Request $request, $slug)

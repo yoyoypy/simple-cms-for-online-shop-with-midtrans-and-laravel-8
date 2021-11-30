@@ -1,4 +1,4 @@
-<!-- Topbar -->
+{{-- <!-- Topbar --> --}}
 <div id="topbar" class="d-none d-xl-block d-lg-block topbar-fullwidth">
     <div class="container">
         <div class="row">
@@ -10,7 +10,7 @@
             <div class="col-md-6 d-none d-sm-block">
                 <div class="social-icons social-icons-colored-hover">
                     <ul>
-                        <!-- <li class="social-whatsapp"><a href="#"><i class="fab fa-whatsapp"></i></a></li> -->
+                        {{-- <!-- <li class="social-whatsapp"><a href="#"><i class="fab fa-whatsapp"></i></a></li> --> --}}
                         <li class="social-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li class="social-twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
                         <li class="social-youtube"><a href="#"><i class="fab fa-youtube"></i></a></li>
@@ -21,16 +21,16 @@
         </div>
     </div>
 </div>
-<!-- end: Topbar -->
+{{-- <!-- end: Topbar --> --}}
 
-<!-- Header -->
+{{-- <!-- Header --> --}}
 <header id="header" data-fullwidth="true">
     <div class="header-inner">
         <div class="container">
-            <!--Logo-->
-            <div id="logo"> <a href="{{ route('index') }}"><span class="logo-default"><img src="{{ asset('frontend/images/content/logo-transparent.png') }}" style="max-width: 250px"></span><span class="logo-dark"><img src="{{ asset('frontend/images/content/logo-transparent.png') }}" style="max-width: 250px"></span></a> </div>
-            <!--End: Logo-->
-            <!-- Search -->
+            {{-- <!--Logo--> --}}
+            <div id="logo"> <a href="{{ route('index') }}"><span class="logo-default"><img src="{{ asset('frontend/images/content/logo-transparent.png') }}" style="max-width: 200px"></span><span class="logo-dark"><img src="{{ asset('frontend/images/content/logo-transparent.png') }}" style="max-width: 200px"></span></a> </div>
+            {{-- <!--End: Logo--> --}}
+            {{-- <!-- Search -->
             <!-- <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
                 <form class="search-form" action="search-results-page.html" method="get">
                     <input class="form-control" name="q" type="text" placeholder="Type & Search..." />
@@ -52,17 +52,17 @@
                         </div>
                     </li>
                 </ul>
-            </div> -->
-            <!--end: Header Extras-->
-            <!--Navigation Resposnive Trigger-->
+            </div> --> --}}
+            {{-- <!--end: Header Extras--> --}}
+            {{-- <!--Navigation Resposnive Trigger--> --}}
             <div id="mainMenu-trigger"> <a class="lines-button x"><span class="lines"></span></a> </div>
-            <!--end: Navigation Resposnive Trigger-->
-            <!--Navigation-->
+            {{-- <!--end: Navigation Resposnive Trigger--> --}}
+            {{-- <!--Navigation--> --}}
             <div id="mainMenu">
                 <div class="container">
                     <nav>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{ route('index') }}">Home</a></li>
                             <li class="dropdown mega-menu-item"><a href="#">Our Product</a>
                                 <ul class="dropdown-menu">
                                     <li class="mega-menu-content">
@@ -207,15 +207,15 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="index.html">About Us</a></li>
-                            <li><a href="index.html">Our News</a></li>
-                            <li><a href="index.html">Contact Us</a></li>
+                            <li><a href="{{ route('about') }}">About Us</a></li>
+                            <li><a href="{{ route('news') }}">Our News</a></li>
+                            <li><a href="#">Contact Us</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
-            <!--end: Navigation-->
+            {{-- <!--end: Navigation--> --}}
         </div>
     </div>
 </header>
-<!-- end: Header -->
+{{-- <!-- end: Header --> --}}

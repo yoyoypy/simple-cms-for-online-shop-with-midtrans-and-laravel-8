@@ -1,4 +1,4 @@
-<!-- Footer -->
+{{-- <!-- Footer --> --}}
 <footer id="footer">
     <div class="footer-content">
         <div class="container">
@@ -16,26 +16,20 @@
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="widget">
-                                <div class="widget-title">Discover</div>
+                                <div class="widget-title">Corporate</div>
                                 <ul class="list">
-                                    <li><a href="#">Features</a></li>
-                                    <li><a href="#">Layouts</a></li>
-                                    <li><a href="#">Corporate</a></li>
-                                    <li><a href="#">Updates</a></li>
-                                    <li><a href="#">Pricing</a></li>
-                                    <li><a href="#">Customers</a></li>
+                                    <li><a href="#">About Us</a></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="col-lg-3">
                             <div class="widget">
-                                <div class="widget-title">Features</div>
+                                <div class="widget-title">Our Brands</div>
                                 <ul class="list">
-                                    <li><a href="#">Layouts</a></li>
-                                    <li><a href="#">Headers</a></li>
-                                    <li><a href="#">Widgets</a></li>
-                                    <li><a href="#">Footers</a></li>
+                                    @foreach ($brands as $brand)
+                                        <li><a href="{{ route('brands', $brand->slug) }}">{{ $brand->brand }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -44,19 +38,22 @@
                             <div class="widget">
                                 <div class="widget-title">Pages</div>
                                 <ul class="list">
-                                    <li><a href="#">Portfolio</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Shop</a></li>
+                                    <li><a href="#">Gallery</a></li>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Product</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Sitemap</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="widget">
-                                <div class="widget-title">Support</div>
+                                <div class="widget-title">Security</div>
                                 <ul class="list">
-                                    <li><a href="#">Help Desk</a></li>
-                                    <li><a href="#">Documentation</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    {{-- <script language="JavaScript" type="text/javascript">
+                                        TrustLogo("https://sadhanas.co.id/public/frontend/img/sectigo_trust_seal_md_106x42.png", "CL1", "none");
+                                        </script>
+                                        <a  href="https://ssl.comodo.com/wildcard-ssl-certificates.php" id="comodoTL">Wildcard SSL</a> --}}
                                 </ul>
                             </div>
                         </div>
@@ -73,4 +70,4 @@
         </div>
     </div>
 </footer>
-<!-- end: Footer -->
+{{-- <!-- end: Footer --> --}}

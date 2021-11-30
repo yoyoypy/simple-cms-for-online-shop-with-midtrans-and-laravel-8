@@ -26,7 +26,11 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->name('index');
-Route::get('/details/{slug}', [FrontendController::class, 'details'])->name('details');
+Route::get('/products/{slug}', [FrontendController::class, 'product'])->name('product-details');
+Route::get('/news', [FrontendController::class, 'news'])->name('news');
+Route::get('/news/{blog}', [FrontendController::class, 'newsdetail'])->name('news-detail');
+Route::get('/brands/{brand}', [FrontendController::class, 'brands'])->name('brands');
+Route::get('/about-us', [FrontendController::class, 'aboutus'])->name('about');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){

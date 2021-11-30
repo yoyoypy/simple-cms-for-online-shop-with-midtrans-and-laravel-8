@@ -22,4 +22,14 @@ class Blog extends Model
     {
         return 'slug';
     }
+
+    /**
+     * Get the user that owns the Blog
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function authors()
+    {
+        return $this->belongsTo(User::class, 'author', 'id');
+    }
 }

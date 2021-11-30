@@ -1,5 +1,5 @@
-<!-- Modal -->
-<div id="modalSubscriptionForm" class="modal modal-auto-open" data-delay="13000" style="background: url('images/newsletter-bg.jpg') no-repeat; background-size: cover; background-position: center top;  max-width: 700px; min-height:380px">
+{{-- <!-- Modal --> --}}
+<div id="modalSubscriptionForm" class="modal modal-auto-open" data-delay="13000" style="background: url('{{ asset('frontend/images/newsletter-bg.jpg') }}') no-repeat; background-size: cover; background-position: center top;  max-width: 700px; min-height:380px">
     <div style="max-width:350px;" class="text-light p-t-30">
         <h2 class="m-b-0">SUBSCRIBE!</h2>
         <h5>Stay informed on our latest news!</h5>
@@ -13,4 +13,4 @@
         <small><em><a href="#" class="modal-close">No thank's, i want to close this window.</a></em></small>
     </div>
 </div>
-<!--end: Modal -->
+{{-- <!--end: Modal --> --}}

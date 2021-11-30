@@ -4,16 +4,17 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     @yield('meta')
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('frontend/favicon.ico') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Stylesheets & Fonts -->
+    {{-- Stylesheets & Fonts --}}
     <link href="{{ asset('frontend/css/plugins.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+    {{-- Pageloader plugin files --}}
+    <link href="{{ asset('frontend/plugins/pageloader/pageloader.css') }}" rel="stylesheet">
 </head>
 
-<body>
-
-    <!-- Body Inner -->
+<body data-icon="16">
+    {{-- Body Inner --}}
     <div class="body-inner">
         @include('frontend.includes.navbar')
 
@@ -22,22 +23,22 @@
         @include('frontend.includes.footer')
 
     </div>
-    <!-- end: Body Inner -->
+    {{-- end: Body Inner --}}
 
-    <!-- Scroll top -->
+    {{-- Scroll top --}}
     <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
-    <!--Plugins-->
+    {{-- Plugins --}}
     <script src="{{ asset('frontend/js/jquery.js') }}"></script>
     <script src="{{ asset('frontend/js/plugins.js') }}"></script>
 
-    <!--Template functions-->
+    {{-- Template functions --}}
     <script src="{{ asset('frontend/js/functions.js') }}"></script>
 
-    <!--Pageloader plugin files-->
-    {{-- <script src="plugins/pageloader/pageloader.js"></script>
-    <script src="plugins/pageloader/pageloader.init.js"></script>
+    {{-- Pageloader plugin files --}}
+    <script src="{{ asset('frontend/plugins/pageloader/pageloader.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/pageloader/pageloader.init.js') }}"></script>
 
-    <script>
+    {{-- <script>
         $(document).ready(function () {
             $(window).on('load',function () {
                 $("#testMe", function () {
