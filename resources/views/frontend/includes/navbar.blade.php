@@ -1,45 +1,46 @@
-{{-- <!-- Topbar --> --}}
+{{-- Topbar --}}
 <div id="topbar" class="d-none d-xl-block d-lg-block topbar-fullwidth">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <ul class="top-menu">
-                    <li><a href="https://api.whatsapp.com/send?phone=628111099218"><i class="fab fa-whatsapp"> 08111099218</i></a></li>
+                   <li><a href="https://api.whatsapp.com/send?phone=628111099218" target="new"><i class="fab fa-whatsapp" style="font-size: 14px"> 08111099218</i></a></li>
                 </ul>
             </div>
             <div class="col-md-6 d-none d-sm-block">
                 <div class="social-icons social-icons-colored-hover">
                     <ul>
-                        {{-- <!-- <li class="social-whatsapp"><a href="#"><i class="fab fa-whatsapp"></i></a></li> --> --}}
-                        <li class="social-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li class="social-twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li class="social-youtube"><a href="#"><i class="fab fa-youtube"></i></a></li>
-                        <li class="social-linkedin"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        <li class="social-whatsapp"><a href="https://api.whatsapp.com/send?phone=628111099218" target="new"><i class="fab fa-whatsapp"></i></a></li>
+                        <li class="social-facebook"><a href="https://www.facebook.com/sadhanaSEA/" target="new"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="social-instagram"><a href="https://www.instagram.com/sadhanasid/" target="new"><i class="fab fa-instagram"></i></a></li>
+                        <li class="social-twitter"><a href="https://twitter.com/sadhanasid" target="new"><i class="fab fa-twitter"></i></a></li>
+                        <li class="social-youtube"><a href="https://www.youtube.com/channel/UCIlxWXMKR8IgxbFN_mN1HdQ" target="new"><i class="fab fa-youtube"></i></a></li>
+                        <li class="social-linkedin"><a href="https://www.linkedin.com/company/pt-sadhana-ekapraya-amitra/" target="new"><i class="fab fa-linkedin"></i></a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{{-- <!-- end: Topbar --> --}}
+{{-- end: Topbar --}}
 
-{{-- <!-- Header --> --}}
+{{-- Header --}}
 <header id="header" data-fullwidth="true">
     <div class="header-inner">
         <div class="container">
-            {{-- <!--Logo--> --}}
+            {{-- Logo --}}
             <div id="logo"> <a href="{{ route('index') }}"><span class="logo-default"><img src="{{ asset('frontend/images/content/logo-transparent.png') }}" style="max-width: 200px"></span><span class="logo-dark"><img src="{{ asset('frontend/images/content/logo-transparent.png') }}" style="max-width: 200px"></span></a> </div>
-            {{-- <!--End: Logo--> --}}
-            {{-- <!-- Search -->
-            <!-- <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
+            {{-- End: Logo --}}
+            {{-- Search
+            <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
                 <form class="search-form" action="search-results-page.html" method="get">
                     <input class="form-control" name="q" type="text" placeholder="Type & Search..." />
                     <span class="text-muted">Start typing & press "Enter" or "ESC" to close</span>
                 </form>
-            </div> -->
-            <!-- end: search -->
-            <!--Header Extras-->
-            <!-- <div class="header-extras">
+            </div>
+            end: search
+            Header Extras
+            <div class="header-extras">
                 <ul>
                     <li> <a id="btn-search" href="#"> <i class="icon-search"></i></a> </li>
                     <li>
@@ -52,12 +53,12 @@
                         </div>
                     </li>
                 </ul>
-            </div> --> --}}
-            {{-- <!--end: Header Extras--> --}}
-            {{-- <!--Navigation Resposnive Trigger--> --}}
+            </div> --}}
+            {{-- end: Header Extras --}}
+            {{-- Navigation Resposnive Trigger --}}
             <div id="mainMenu-trigger"> <a class="lines-button x"><span class="lines"></span></a> </div>
-            {{-- <!--end: Navigation Resposnive Trigger--> --}}
-            {{-- <!--Navigation--> --}}
+            {{-- end: Navigation Resposnive Trigger --}}
+            {{-- Navigation --}}
             <div id="mainMenu">
                 <div class="container">
                     <nav>
@@ -209,13 +210,13 @@
                             </li>
                             <li><a href="{{ route('about') }}">About Us</a></li>
                             <li><a href="{{ route('news') }}">Our News</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
-            {{-- <!--end: Navigation--> --}}
+            {{-- end: Navigation --}}
         </div>
     </div>
 </header>
-{{-- <!-- end: Header --> --}}
+{{-- end: Header --}}

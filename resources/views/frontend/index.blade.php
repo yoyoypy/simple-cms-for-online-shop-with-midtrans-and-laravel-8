@@ -104,11 +104,11 @@
                 <div class="row justify-content-between">
                     <div class="col-md-5">
                         <div class="heading-text  text-light">
-                            <h5 class="text-uppercase">Features
+                            <h5 class="text-uppercase">Mulai Perjalanan Bisnis Anda Bersama Kami
                             </h5>
-                            <h3><span>Create beautiful websites with ease</span></h2>
-                                <p>Tons of features that will give you the power to create any website</p>
-                                <a href="" class="btn btn-light btn-outline btn-rounded">Contact Us</a>
+                            <h4><span>Kami akan membantu menemukan peralatan yang tepat untuk Anda</span></h4>
+                                <p>Dapatkan info tentang produk kami dengan berlangganan dengan newsletter</p>
+                                <a href="{{ route('contact') }}" class="btn btn-light btn-outline btn-rounded">Contact Us</a>
                         </div>
                     </div>
                     <div class="col-md-7">
@@ -158,7 +158,7 @@
                             laoreet lorem
                             lacinia et. interum sit amet dui.
                         </div>
-                        <a href="#" class="btn btn-inverted" style="top: 10px;">See Our Client</a>
+                        <a href="{{ route('about') }}/#client" class="btn btn-inverted" style="top: 10px;">See Our Client</a>
                     </div>
                     <div class="col-lg-8">
                         <div class="carousel dots-grey" data-items="4" data-arrows="false" data-autoplay="1000">

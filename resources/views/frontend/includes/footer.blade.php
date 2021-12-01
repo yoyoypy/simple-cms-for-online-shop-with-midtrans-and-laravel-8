@@ -6,10 +6,12 @@
                 <div class="col-lg-5">
                     <div class="widget">
 
-                        <div class="widget-title">Polo HTML5 Template</div>
-                        <p class="mb-5">Built with love in Fort Worth, Texas, USA<br>
-                            All rights reserved. Copyright © 2019. INSPIRO.</p>
-                        <a href="https://themeforest.net/item/polo-responsive-multipurpose-html5-template/13708923" class="btn btn-inverted" target="_blank">Purchase Now</a>
+                        <div class="widget-title">
+                            <div id="logo"><a href="{{ route('index') }}"><span class="logo-default"><img src="{{ asset('frontend/images/content/logo-transparent.png') }}" style="max-width: 200px"></span></a></div>
+                        </div>
+                        <p class="mb-5">Every retail food business is different and unique. Crucial success factors like store location, customer traffic can make or break any business.<br>
+                            The enormous commitment, innovation required to create a successful retail business, there’s often little time left over to think about Freshness and Quality of food.</p>
+                        {{-- <a href="https://themeforest.net/item/polo-responsive-multipurpose-html5-template/13708923" class="btn btn-inverted" target="_blank">Purchase Now</a> --}}
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -18,7 +20,7 @@
                             <div class="widget">
                                 <div class="widget-title">Corporate</div>
                                 <ul class="list">
-                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="{{ route('about') }}">About Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -39,9 +41,9 @@
                                 <div class="widget-title">Pages</div>
                                 <ul class="list">
                                     <li><a href="#">Gallery</a></li>
-                                    <li><a href="#">News</a></li>
+                                    <li><a href="{{ route('news') }}">News</a></li>
                                     <li><a href="#">Product</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                     <li><a href="#">Sitemap</a></li>
                                 </ul>
                             </div>

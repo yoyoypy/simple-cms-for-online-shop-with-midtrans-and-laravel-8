@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
@@ -31,6 +32,8 @@ Route::get('/news', [FrontendController::class, 'news'])->name('news');
 Route::get('/news/{blog}', [FrontendController::class, 'newsdetail'])->name('news-detail');
 Route::get('/brands/{brand}', [FrontendController::class, 'brands'])->name('brands');
 Route::get('/about-us', [FrontendController::class, 'aboutus'])->name('about');
+Route::get('/contact-us', [FrontendController::class, 'contact'])->name('contact');
+Route::post('/contact-us', [FrontendController::class, 'contactsubmit'])->name('contact-submit');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
@@ -74,6 +77,9 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
         ]);
         Route::resource('photogallery', PhotoGalleryController::class)->except([
             'show', 'edit', 'update'
+        ]);
+        Route::resource('inbox', ContactController::class)->only([
+            'show', 'index'
         ]);
     });
 });

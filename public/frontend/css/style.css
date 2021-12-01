@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*  Mixins */
 /*  Fonts */
-/* --------------------------------------------------------------- 
+/* ---------------------------------------------------------------
    Google Fonts
 -----------------------------------------------------------------*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,400,500,600,700,800|Nunito:300,400,600,700,800");
@@ -10711,6 +10711,10 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .social-icons.social-icons-colored-hover .social-twitter a:hover {
   background-color: #40bff5; }
 
+.social-icons.social-icons-colored .social-whatsapp a,
+.social-icons.social-icons-colored-hover .social-whatsapp a:hover {
+  background-color: #4FCE5D; }
+
 .social-icons.social-icons-colored .social-vimeo a,
 .social-icons.social-icons-colored-hover .social-vimeo a:hover {
   background-color: #35c6ea; }
@@ -13515,7 +13519,7 @@ Forms - Dark
        text-align: center;
        font-size: 1.5em;
      } */
-  /* 
+  /*
 background-color: #fff;
   border-radius: 6px;
   width: auto;
@@ -13540,7 +13544,7 @@ width: 140px; */
        color: #5F5D6D;
      } */ }
 
-/* 
+/*
 .floating-mobile-menu {
     position: fixed;
     bottom: -61px;

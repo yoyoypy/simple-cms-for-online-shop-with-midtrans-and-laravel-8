@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckoutRequest;
+use App\Http\Requests\ContactRequest;
 use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Cart;
+use App\Models\Contact;
 use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
@@ -66,12 +68,31 @@ class FrontendController extends Controller
         return view('frontend.aboutus', compact('brands'));
     }
 
+    public function contact()
+    {
+        //footer
+        $brands = Brand::all();
+
+        return view('frontend.contact', compact('brands'));
+    }
+
+    public function contactsubmit(ContactRequest $request)
+    {
+        $data = $request->all();
+
+        Contact::create($data);
+        return redirect()->route('index');
+    }
+
     public function details(Request $request, $slug)
     {
         $product = Product::with(['galleries'])->where('slug', $slug)->firstOrFail();
         $recommendations = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
 
-        return view('pages.frontend.details', compact('product', 'recommendations'));
+        //footer
+        $brands = Brand::all();
+
+        return view('pages.frontend.details', compact('brands', 'product', 'recommendations'));
     }
 
     public function cartadd(Request $request, $id)

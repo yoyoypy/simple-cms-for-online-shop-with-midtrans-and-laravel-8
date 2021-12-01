@@ -117,7 +117,7 @@
     <div class="seperator"><i class="fa fa-chevron-down"></i></div>
 </section>
 
-<section>
+<section id="client">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
