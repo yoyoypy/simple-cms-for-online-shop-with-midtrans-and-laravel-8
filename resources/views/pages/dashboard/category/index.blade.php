@@ -15,6 +15,7 @@
                 columns: [
                     { data: 'id', name: 'id', width: '5%'},
                     { data: 'category', name: 'category' },
+                    { data: 'thumbnail', name: 'thumbnail' },
                     {
                         data: 'action',
                         name: 'action',
@@ -41,6 +42,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Category</th>
+                            <th>Thumbnail</th>
                             <th>Aksi</th>
                         </tr>
                         </thead>

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductCategoryRequest;
+use App\Http\Requests\ProductCategoryUpdateRequest;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Storage;
 
 class ProductCategoryController extends Controller
 {
@@ -22,6 +24,9 @@ class ProductCategoryController extends Controller
             $query = ProductCategory::query();
 
             return DataTables::of($query)
+                ->editColumn('thumbnail', function($item){
+                    return '<img style="max-width: 150px" src="' . Storage::url($item->thumbnail) . '"/>';
+                })
                 ->addColumn('action', function($item){
                     return '
                         <a class="inline-block border border-gray-700 bg-gray-700 text-white rounded-md px-2 py-1 m-1 transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline"
@@ -35,7 +40,7 @@ class ProductCategoryController extends Controller
                             ' . method_field('delete') . csrf_field() . '
                         </form>';
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['action', 'thumbnail'])
                 ->make();
         }
 
@@ -62,6 +67,10 @@ class ProductCategoryController extends Controller
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->category);
+
+        $data['thumbnail'] = $request->file('thumbnail')->store(
+            'assets/categorythumbnail', 'public'
+        );
 
         ProductCategory::create($data);
 
@@ -99,10 +108,16 @@ class ProductCategoryController extends Controller
      * @param  \App\Models\ProductCategory  $productCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductCategoryRequest $request, ProductCategory $category)
+    public function update(ProductCategoryUpdateRequest $request, ProductCategory $category)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->category);
+
+        if($request->hasFile('thumbnail')){
+            $data['thumbnail'] = $request->file('thumbnail')->store(
+                'assets/categorythumbnail', 'public'
+            );
+        }
 
         $category->update($data);
 

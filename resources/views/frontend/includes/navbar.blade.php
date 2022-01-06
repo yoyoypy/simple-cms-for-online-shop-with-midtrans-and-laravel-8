@@ -64,7 +64,7 @@
                     <nav>
                         <ul>
                             <li><a href="{{ route('index') }}">Home</a></li>
-                            <li class="dropdown mega-menu-item"><a href="#">Our Product</a>
+                            <li class="dropdown mega-menu-item"><a href="{{ route('products') }}">Our Product</a>
                                 <ul class="dropdown-menu">
                                     <li class="mega-menu-content">
                                         <div class="row">

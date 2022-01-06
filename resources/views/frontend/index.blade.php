@@ -45,50 +45,24 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="heading-text heading-line text-center">
-                    <h4>Browser our categories </h4>
+                    <h4>Browse our categories </h4>
                 </div>
-
             </div>
         </div>
 
         <div class="shop-category">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="shop-category-box">
-                        <a href="#"><img alt="" src="{{ asset('frontend/images/shop/shop-category/1.jpg') }}">
-                            <div class="shop-category-box-title text-center">
-                                <h6>Women</h6><small>64 products</small>
-                            </div>
-                        </a>
+                @foreach ($categories as $category)
+                    <div class="col-lg-3">
+                        <div class="shop-category-box">
+                            <a href="#"><img style="max-height: 507px; max-width: 380px" alt="Category Thumbnail here!" src="{{ Storage::url($category->thumbnail) }}">
+                                <div class="shop-category-box-title text-center">
+                                    <h6>{{ $category->category }}</h6><small>{{ $category->product_count }} products</small>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="shop-category-box">
-                        <a href="#"><img alt="" src="{{ asset('frontend/images/shop/shop-category/2.jpg') }}">
-                            <div class="shop-category-box-title text-center">
-                                <h6>Wallet's</h6><small>36 products</small>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="shop-category-box">
-                        <a href="#"><img alt="" src="{{ asset('frontend/images/shop/shop-category/2.jpg') }}">
-                            <div class="shop-category-box-title text-center">
-                                <h6>Man</h6><small>25 products</small>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="shop-category-box">
-                        <a href="#"><img alt="" src="{{ asset('frontend/images/shop/shop-category/2.jpg') }}">
-                            <div class="shop-category-box-title text-center">
-                                <h6>Socks</h6><small>80 products</small>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -219,14 +193,14 @@
                         <a href="#"><i class="fa fa-heart"></i></a>
                     </span> --}}
                     <div class="product-overlay">
-                        <a href="{{ route('product-details', $product->slug) }}">View</a>
+                        <a href="{{ route('details', $product->slug) }}">View</a>
                     </div>
                 </div>
 
                 <div class="product-description">
                     <div class="product-category">{{ $product->categories->category }}</div>
                     <div class="product-title">
-                        <h3><a href="{{ route('product-details', $product->slug) }}">{{ $product->name }}</a></h3>
+                        <h3><a href="{{ route('details', $product->slug) }}">{{ $product->name }}</a></h3>
                     </div>
                     {{-- <div class="product-price"><ins>$15.00</ins>
                     </div> --}}

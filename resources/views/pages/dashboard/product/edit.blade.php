@@ -33,7 +33,7 @@
                     <div class="w-full px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Brands</label>
                         <select name="brands_id" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option value="">Select Brand</option>
+                                <option value="{{ $item->brand->id }}">{{ $item->brand->brand }}</option>
                                 <option value="" disabled>---------------</option>
                             @foreach ($brands as $brand)
                                 <option value="{{ $brand->id }}">{{ $brand->brand }}</option>
@@ -47,7 +47,7 @@
                     <div class="w-full px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Categories</label>
                         <select name="categories_id" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                            <option value="">Select Category</option>
+                            <option value="{{ $item->categories->id }}">{{ $item->categories->category }}</option>
                             <option value="" disabled>---------------</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->category }}</option>
@@ -81,6 +81,76 @@
                         <input type="number" value="{{ old('price') ?? $item->price }}" name="price" placeholder="Input Product Price Here" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     </div>
                     {{-- input price --}}
+                </div>
+
+                <div class="flex flex-wrap -mx-4 mb-6">
+                    {{-- input volume --}}
+                    <div class="w-fit px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Volume</label>
+                        <input type="number" value="{{ old('volume') ?? $item->volume }}" name="volume" placeholder="Input Volume in L" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <small>Liters Unit</small>
+                    </div>
+                    {{-- input volume --}}
+                    {{-- input length --}}
+                    <div class="w-fit px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Length</label>
+                        <input type="number" value="{{ old('length') ?? $item->length }}" name="length" placeholder="Input Length in MM" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <small>MM Unit</small>
+                    </div>
+                    {{-- input length --}}
+                    {{-- input width --}}
+                    <div class="w-fit px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Width</label>
+                        <input type="number" value="{{ old('width') ?? $item->width }}" name="width" placeholder="Input Width in MM" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <small>MM Unit</small>
+                    </div>
+                    {{-- input width --}}
+                    {{-- input height --}}
+                    <div class="w-fit px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Height</label>
+                        <input type="number" value="{{ old('height') ?? $item->height }}" name="height" placeholder="Input Height in MM" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <small>MM Unit</small>
+                    </div>
+                    {{-- input height --}}
+                </div>
+
+                <div class="flex flex-wrap -mx-4 mb-6">
+                    {{-- input power --}}
+                    <div class="w-fit px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Power</label>
+                        <input type="number" value="{{ old('power') ?? $item->power }}" name="power" placeholder="Input Power in W" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <small>Watt Unit</small>
+                    </div>
+                    {{-- input power --}}
+                    {{-- input color --}}
+                    <div class="w-fit px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Color</label>
+                        <input type="text" value="{{ old('color') ?? $item->color }}" name="color" placeholder="Input Product Color Here" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    </div>
+                    {{-- input color --}}
+                    {{-- input warranty --}}
+                    <div class="w-fit px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Warranty</label>
+                        <input type="number" value="{{ old('warranty') ?? $item->warranty }}" name="warranty" placeholder="Input Warranty in Month" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <small>Month</small>
+                    </div>
+                    {{-- input warranty --}}
+                    {{-- input rak --}}
+                    <div class="w-fit px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Rak</label>
+                        <input type="number" value="{{ old('rak') ?? $item->rak }}" name="rak" placeholder="Input Jumlah Rak" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    </div>
+                    {{-- input rak --}}
+                </div>
+
+                <div class="flex flex-wrap -mx-4 mb-6">
+                    {{-- input temp --}}
+                    <div class="w-6/12 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Temperature</label>
+                        <input type="text" value="{{ old('temp') ?? $item->temp }}" name="temp" placeholder="xx - xx" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                        <small>only input <i>lowest</i> - <i>highest</i> temp</small>
+                    </div>
+                    {{-- input temp --}}
                 </div>
 
                 <div class="flex flex-wrap -mx-4 mb-6">

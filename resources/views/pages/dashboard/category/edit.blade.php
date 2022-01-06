@@ -38,6 +38,15 @@
                 </div>
 
                 <div class="flex flex-wrap -mx-4 mb-6">
+                    {{-- input photo --}}
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Thumbnail</label>
+                        <input type="file" value="{{ old('thumbnail') ?? $item->thumbnail }}" accept="image" name="thumbnail" placeholder="Select Thumbnail Here" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    </div>
+                    {{-- input photo --}}
+                </div>
+
+                <div class="flex flex-wrap -mx-4 mb-6">
                     {{-- save button --}}
                     <div class="w-full px-3">
                         <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">

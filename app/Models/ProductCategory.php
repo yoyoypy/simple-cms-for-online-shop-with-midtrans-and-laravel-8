@@ -12,7 +12,8 @@ class ProductCategory extends Model
     protected $table = 'product_categories';
     protected $fillable = [
         'slug',
-        'category'
+        'category',
+        'thumbnail'
     ];
 
     public function getRouteKeyName()

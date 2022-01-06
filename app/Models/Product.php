@@ -18,6 +18,15 @@ class Product extends Model
         'description',
         'price',
         'slug',
+        'volume',
+        'length',
+        'width',
+        'height',
+        'power',
+        'color',
+        'warranty',
+        'rak',
+        'temp',
         'tags'
     ];
 
@@ -32,6 +41,16 @@ class Product extends Model
     }
 
     /**
+     * Get the user associated with the Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function picture()
+    {
+        return $this->hasOne(ProductGallery::class, 'products_id', 'id')->oldestOfMany();
+    }
+
+    /**
      * Get the categories te Product
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -39,5 +58,15 @@ class Product extends Model
     public function categories()
     {
         return $this->belongsTo(ProductCategory::class, 'categories_id', 'id');
+    }
+
+    /**
+     * Get the brand that owns the Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brands_id', 'id');
     }
 }

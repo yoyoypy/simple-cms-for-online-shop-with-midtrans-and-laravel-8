@@ -19,6 +19,10 @@
                                 <td class="border px-6 py-4">{{ $item->subject }}</td>
                             </tr>
                             <tr>
+                                <th class="border px-6 py-4 text-right">Description</th>
+                                <td class="border px-6 py-4">{{ $item->description }}</td>
+                            </tr>
+                            <tr>
                                 <th class="border px-6 py-4 text-right">Date</th>
                                 <td class="border px-6 py-4">{{ $item->created_at }}</td>
                             </tr>

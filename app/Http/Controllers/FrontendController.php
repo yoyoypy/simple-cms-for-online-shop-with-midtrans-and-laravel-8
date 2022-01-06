@@ -9,6 +9,7 @@ use App\Models\Brand;
 use App\Models\Cart;
 use App\Models\Contact;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Illuminate\Http\Request;
@@ -24,9 +25,11 @@ class FrontendController extends Controller
         $products = Product::with(['galleries'])->latest()->take(10)->get();
         $brands = Brand::all();
         $blogs = Blog::latest()->take(6)->get();
+        $categories = ProductCategory::withCount('product')->inRandomOrder()->get()->take(4);
+        // dd($categories);
 
         // dd($blogs);
-        return view('frontend.index', compact('products', 'blogs', 'brands'));
+        return view('frontend.index', compact('products', 'blogs', 'brands', 'categories'));
     }
 
     public function news()
@@ -84,15 +87,34 @@ class FrontendController extends Controller
         return redirect()->route('index');
     }
 
-    public function details(Request $request, $slug)
+    public function products()
     {
-        $product = Product::with(['galleries'])->where('slug', $slug)->firstOrFail();
-        $recommendations = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
+        $products = Product::with(['picture', 'brand'])->paginate(9);
+        // $recommendations = Product::with(['picture'])->inRandomOrder()->limit(4)->get();
+        // dd($products);
+        //right bar
+        $product_categories = ProductCategory::withCount(['product'])->get();
+        $latest_products = Product::with(['picture'])->latest()->take(5)->get();
 
         //footer
         $brands = Brand::all();
 
-        return view('pages.frontend.details', compact('brands', 'product', 'recommendations'));
+        return view('frontend.products', compact('brands', 'products', 'product_categories', 'latest_products'));
+    }
+
+    public function details(Request $request, $slug)
+    {
+        $product = Product::with(['galleries'])->where('slug', $slug)->firstOrFail();
+        $recommendations = Product::with(['picture'])->inRandomOrder()->limit(3)->get();
+
+        //right bar
+        $product_categories = ProductCategory::withCount(['product'])->get();
+        $latest_products = Product::with(['picture'])->latest()->take(3)->get();
+
+        //footer
+        $brands = Brand::all();
+
+        return view('frontend.details', compact('brands', 'product', 'recommendations', 'product_categories', 'latest_products'));
     }
 
     public function cartadd(Request $request, $id)
